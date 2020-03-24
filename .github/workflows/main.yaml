@@ -14,9 +14,9 @@ job:
     steps:
       - name: Setup Go
         uses: actions/setup-go
-          with:
-            go-version: '1.14'
-          id: go
+        with:
+          go-version: '1.14'
+        id: go
 
       - name: Checkout App
         uses: actions/checkout@v2
