@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-/*This function load the list of drivers from a JSON file.*/
+// LoadDrivers loads the list of drivers from a JSON file.
 func LoadDrivers(file string) []byte {
 	jsonFile, err := os.Open(file)
 	if err != nil {
@@ -26,13 +26,13 @@ func LoadDrivers(file string) []byte {
 	return data
 }
 
-/*This function send the list of all registered drivers to client page.*/
+// ListDrivers sends the list of all registered drivers to client page.
 func ListDrivers(w http.ResponseWriter, r *http.Request) {
 	drivers := LoadDrivers("drivers.json")
 	w.Write([]byte(drivers))
 }
 
-/*This function send the select driver (by id) to the cliente page.*/
+// GetDriverByID sends the selected driver (by id) to the cliente page.
 func GetDriverByID(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	data := LoadDrivers("drivers.json")
